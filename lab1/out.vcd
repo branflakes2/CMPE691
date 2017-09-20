@@ -1,0 +1,40 @@
+$date
+  Wed Sep 20 15:28:29 2017
+$end
+$version
+  GHDL v0
+$end
+$timescale
+  1 fs
+$end
+$var integer 32 ! plain $end
+$var integer 32 " cypher $end
+$var integer 32 # key $end
+$var reg 1 $ ed $end
+$scope module venc $end
+$var integer 32 % ptxt $end
+$var integer 32 & kchar $end
+$var reg 1 ' e_or_d $end
+$var integer 32 ( ctxt $end
+$var integer 32 ) ptxt_26 $end
+$var integer 32 * key_26 $end
+$upscope $end
+$enddefinitions $end
+#0
+b1110100 !
+b10000000000000000000000000000000 "
+b1100010 #
+1$
+b1110100 %
+b1100010 &
+1'
+b10000000000000000000000000000000 (
+b10000000000000000000000000000000 )
+b10000000000000000000000000000000 *
+#1000000
+b10100 )
+b10 *
+#2000000
+b1100001 "
+b1100001 (
+#5000000
