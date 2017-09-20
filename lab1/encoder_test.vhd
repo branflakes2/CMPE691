@@ -42,7 +42,7 @@ begin
         readline(infile, buf2);    
         read(buf1, ptxt);
         read(buf2, kchar);
-        ed <= '1';
+        ed <= '0';
         plain <= character'pos(ptxt);
         key <= character'pos(kchar);
         wait for 5 ns;

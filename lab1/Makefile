@@ -8,6 +8,6 @@ vigenere_encoder.o: vigenere_encoder.vhd
 run: input.txt
 	./encoder_test 
 clean:
-	rm -rf *.o *.cf
+	rm -rf *.o *.cf *.vcd encoder_test
 vcd:
 	ghdl -r encoder_test --vcd=out.vcd
