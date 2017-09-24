@@ -1,3 +1,5 @@
-*.o 
-*.cf
-*.swp
+*
+!*.vhd
+!*.txt
+!*Makefile
+!*.gitignore

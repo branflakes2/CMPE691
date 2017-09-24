@@ -9,28 +9,29 @@ port (
     load        :   in std_logic;
     reset       :   in std_logic;
     key_in      :   in string(1 to 80);
+    key_len     :   in integer;
     char_out    :   out character);
 end key_register;
 
 architecture behavior of key_register is
 
-signal count    :   integer register := 0;
-signal key      :   string(1 to 80) register := null;
+signal key      :   string(1 to 80) := (others => character'val(0));
+signal count    :   integer := 0;
 
 begin
-    process(clock, load, reset, key_in)
+    process(clock, reset)
     begin
-        if rising_edge(reset) then
+        if reset = '1' then
             count <= 0;
-            key <= null;
-        elsif load and falling_edge(clock) then
+            key <= (others => character'val(0));
+        elsif load = '1' and falling_edge(clock) then
             key <= key_in;
+            count <= 0;
         elsif falling_edge(clock) then
-            char_out <= key(count);
+            char_out <= key(count + 1);
             count <= count + 1;
-            if key(count) = "\0" then
-                count <= 0;
-            end if;
+        elsif rising_edge(clock) and key(count + 1) = character'val(0) then
+            count <= 0;
         end if;
     end process;
 end behavior;
