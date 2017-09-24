@@ -1,5 +1,5 @@
-*
-!*.vhd
-!*.txt
-!*Makefile
-!*.gitignore
+lab1/*
+!lab1/*.*
+*.o
+*.swo
+*.swp
