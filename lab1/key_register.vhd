@@ -9,7 +9,7 @@ port (
     load        :   in std_logic;
     reset       :   in std_logic;
     key_in      :   in string(1 to 80);
-    key_len     :   in integer;
+    hold        :   in std_logic; --prevents counter from advancing
     char_out    :   out character);
 end key_register;
 
@@ -27,7 +27,7 @@ begin
         elsif load = '1' and falling_edge(clock) then
             key <= key_in;
             count <= 0;
-        elsif falling_edge(clock) then
+        elsif falling_edge(clock) and hold /= '1' then
             char_out <= key(count + 1);
             count <= count + 1;
         elsif rising_edge(clock) and key(count + 1) = character'val(0) then

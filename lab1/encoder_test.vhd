@@ -13,15 +13,15 @@ architecture test of encoder_test is
 
     component encoder
         port(
-            ptxt    :   in integer;
-            kchar   :   in integer;
+            ptxt    :   in character;
+            kchar   :   in character;
             e_or_d  :   in std_logic;
-            ctxt    :   out integer);
+            ctxt    :   out character);
     end component;
 
     for venc : encoder use entity work.vigenere_encoder(behavior);
 
-    signal plain, cypher, key   : integer;
+    signal plain, cypher, key   : character;
     signal ed                   : std_logic;
 
 begin
@@ -43,12 +43,10 @@ begin
         read(buf1, ptxt);
         read(buf2, kchar);
         ed <= '0';
-        plain <= character'pos(ptxt);
-        key <= character'pos(kchar);
+        plain <= ptxt;
+        key <= kchar;
         wait for 5 ns;
-        ctxt := character'val(cypher);
-        report "ptxt: " & character'image(ptxt) & " kchar: " & character'image(kchar);
-        report "ctxt: " & character'image(ctxt) & " plain: " & integer'image(plain) & " key: " & integer'image(key);
+        ctxt := cypher;
         write(buf1, ctxt);
         writeline(outfile, buf1); 
         wait; 

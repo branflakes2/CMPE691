@@ -15,7 +15,7 @@ architecture test of key_test is
             load        :   in std_logic;
             reset       :   in std_logic;
             key_in      :   in string(1 to 80);
-            key_len     :   in integer;
+            hold        :   in std_logic;
             char_out    :   out character);
     end component key_register;
 
@@ -29,7 +29,7 @@ architecture test of key_test is
 
 begin
 
-    kreg : key_register port map (clk, ld, rst, keyin, keylen, oput);
+    kreg : key_register port map (clk, ld, rst, keyin, '0', oput);
     
     clk1 : process
     begin
@@ -52,7 +52,7 @@ begin
         variable key_in             :   string(1 to 80);
         variable char_out           :   character;
         variable buf1, buf2         :   line;
-        variable Llen               :   integer;
+        variable Llen               :   integer := 0;        
 
     begin
        
@@ -63,7 +63,6 @@ begin
         key_in(Llen + 1 to 80) := (others => character'val(0));
         ld <= '1';
         keyin <= key_in;
-        keylen <= Llen;
         wait until falling_edge(clk);
         wait for 1 ns;
         ld <= '0';
