@@ -11,7 +11,7 @@ port (
     reset       :   in std_logic;
     e_or_d      :   in std_logic;
     str_input   :   in string(1 to 80);
-    done        :   out std_logic := '0'; --turns high when message en/decoding is done
+    done        :   out std_logic; --turns high when message en/decoding is done
     char_out    :   out character); --encoded/decoded character
 end vigenere_cipher;
 
@@ -48,7 +48,7 @@ port(
     reset       :   in std_logic;
     in_input    :   in string(1 to 80);
     hold        :   in std_logic;
-    done        :   out std_logic := '0'; --goes high when end of message is reached
+    done        :   out std_logic; --goes high when end of message is reached
     char_out    :   out character);
 end component;
 
@@ -56,8 +56,8 @@ begin
 
     hold <= load_mes or load_key; 
 
-    key :   key_register port map(clock, load_key, reset, key_reg_in, key_out);
-    mes :   input_register port map(clock, load_mes, reset, mes_reg_in, done, mes_out);
+    key :   key_register port map(clock, load_key, reset, key_reg_in, hold, key_out);
+    mes :   input_register port map(clock, load_mes, reset, mes_reg_in, hold, done, mes_out);
     enc :   vigenere_encoder port map(mes_out, key_out, e_or_d, char_out);
 
     in_decide   :   process(load_key, load_mes)

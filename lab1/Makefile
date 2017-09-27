@@ -1,9 +1,10 @@
 FLAGS=--ieee=synopsys
 CLEAN=*.o *.cf *.vcd *.swo encoder_test key_test
-all: encoder_test.o key_test.o
+all: encoder_test.o key_test.o vigenere_test.o
 	ghdl -e ${FLAGS} encoder_test
 	ghdl -e ${FLAGS} key_test
-vigenere_test.o:
+	ghdl -e ${FLAGS} vigenere_test
+vigenere_test.o: vigenere_cipher.o vigenere_test.vhd
 	ghdl -a ${FLAGS} vigenere_test.vhd
 vigenere_cipher.o: vigenere_encoder.o key_register.o input_register.o vigenere_cipher.vhd
 	ghdl -a ${FLAGS} vigenere_cipher.vhd
