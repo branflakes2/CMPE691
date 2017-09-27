@@ -46,7 +46,7 @@ begin
 
     test_p  :   process
 
-        file infile         :   text is in "input.txt";
+        file infile         :   text is in "in.txt";
         file outfile        :   text is out "out.txt";
         variable space      :   character;   
         variable buflen     :   integer;
