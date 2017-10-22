@@ -11,13 +11,13 @@ architecture test of aes_test is
 
 component round9_10
 port(
-    input       :   in  std_logic_vector(127 downto 0);
-    round9_key  :   in  std_logic_vector(127 downto 0);
-    output      :   out std_logic_vector(127 downto 0)
+    input       :   in  std_logic_vector(0 to 127);
+    round9_key  :   in  std_logic_vector(0 to 127);
+    output      :   out std_logic_vector(0 to 127)
 );
 end component;
 
-signal s_input, s_round9_key, s_output  :   std_logic_vector(127 downto 0);
+signal s_input, s_round9_key, s_output  :   std_logic_vector(0 to 127);
 
 begin
 
@@ -28,7 +28,7 @@ begin
         file infile             :   text is in "in.txt";
         file outfile            :   text is out "out.txt";
         variable buf            :   line;
-        variable v_input, v_round9_key, v_output       :   std_logic_vector(127 downto 0);
+        variable v_input, v_round9_key, v_output       :   std_logic_vector(0 to 127);
 
     begin
 
