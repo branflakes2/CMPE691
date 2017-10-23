@@ -5,9 +5,9 @@ use IEEE.std_logic_1164.all;
 entity round9_10 is
 
 port(
-    input       :   in  std_logic_vector(127 downto 0);
-    round9_key  :   in  std_logic_vector(127 downto 0);
-    output      :   out std_logic_vector(127 downto 0)
+    input       :   in  std_logic_vector(0 to 127);
+    round9_key  :   in  std_logic_vector(0 to 127);
+    output      :   out std_logic_vector(0 to 127)
 );
 
 end round9_10;
@@ -16,40 +16,40 @@ architecture behavior of round9_10 is
 
     component sboxes
     port(
-        input   :   in  std_logic_vector(127 downto 0);
-        output  :   out std_logic_vector(127 downto 0)
+        input   :   in  std_logic_vector(0 to 127);
+        output  :   out std_logic_vector(0 to 127)
     );
     end component;
 
     component shift_row
     port(
-        input   :   in  std_logic_vector(127 downto 0);
-        output  :   out std_logic_vector(127 downto 0)
+        input   :   in  std_logic_vector(0 to 127);
+        output  :   out std_logic_vector(0 to 127)
     );
     end component;
 
     component mix_column
     port(
-        input   :   in  std_logic_vector(127 downto 0);
-        output  :   out std_logic_vector(127 downto 0)
+        input   :   in  std_logic_vector(0 to 127);
+        output  :   out std_logic_vector(0 to 127)
     );
     end component;
 
     component key_schedule
     port(
-        input_key   :   in  std_logic_vector(127 downto 0);
-        RC          :   in  std_logic_vector(7 downto 0);
-        output_key  :   out std_logic_vector(127 downto 0)
+        input_key   :   in  std_logic_vector(0 to 127);
+        RC          :   in  std_logic_vector(0 to 7);
+        output_key  :   out std_logic_vector(0 to 127)
     );
     end component;
 
-    signal sbox_out         :   std_logic_vector(127 downto 0);
-    signal shift_row_out    :   std_logic_vector(127 downto 0);
-    signal mix_column_out   :   std_logic_vector(127 downto 0);
-    signal round9_out       :   std_logic_vector(127 downto 0);
-    signal round10_key      :   std_logic_vector(127 downto 0);
-    signal sbox_out_2       :   std_logic_vector(127 downto 0);
-    signal shift_row_out_2  :   std_logic_vector(127 downto 0);
+    signal sbox_out         :   std_logic_vector(0 to 127);
+    signal shift_row_out    :   std_logic_vector(0 to 127);
+    signal mix_column_out   :   std_logic_vector(0 to 127);
+    signal round9_out       :   std_logic_vector(0 to 127);
+    signal round10_key      :   std_logic_vector(0 to 127);
+    signal sbox_out_2       :   std_logic_vector(0 to 127);
+    signal shift_row_out_2  :   std_logic_vector(0 to 127);
 
 begin
 

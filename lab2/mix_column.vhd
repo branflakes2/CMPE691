@@ -5,8 +5,8 @@ use IEEE.std_logic_1164.all;
 entity mix_column is
 
 port(
-    input   :   in  std_logic_vector(127 downto 0);
-    output  :   out std_logic_vector(127 downto 0)
+    input   :   in  std_logic_vector(0 to 127);
+    output  :   out std_logic_vector(0 to 127)
 );
 
 end mix_column;
@@ -22,15 +22,15 @@ port(
 
 end component;
 
-    alias col1  :   std_logic_vector(31 downto 0) is input(31 downto 0);
-    alias col2  :   std_logic_vector(31 downto 0) is input(63 downto 32);
-    alias col3  :   std_logic_vector(31 downto 0) is input(95 downto 64);
-    alias col4  :   std_logic_vector(31 downto 0) is input(127 downto 96);
+    alias col1  :   std_logic_vector(0 to 31) is input(0 to 31);
+    alias col2  :   std_logic_vector(0 to 31) is input(32 to 63);
+    alias col3  :   std_logic_vector(0 to 31) is input(64 to 95);
+    alias col4  :   std_logic_vector(0 to 31) is input(96 to 127);
 
-    alias ocol1  :   std_logic_vector(31 downto 0) is output(31 downto 0);
-    alias ocol2  :   std_logic_vector(31 downto 0) is output(63 downto 32);
-    alias ocol3  :   std_logic_vector(31 downto 0) is output(95 downto 64);
-    alias ocol4  :   std_logic_vector(31 downto 0) is output(127 downto 96);
+    alias ocol1  :   std_logic_vector(0 to 31) is output(0 to 31);
+    alias ocol2  :   std_logic_vector(0 to 31) is output(32 to 63);
+    alias ocol3  :   std_logic_vector(0 to 31) is output(64 to 95);
+    alias ocol4  :   std_logic_vector(0 to 31) is output(96 to 127);
 
 begin
 

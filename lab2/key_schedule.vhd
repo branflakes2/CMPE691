@@ -36,7 +36,7 @@ begin
 
     w0 <= input_key(0 to 31);
     w1 <= input_key(32 to 63);
-    w2 <= input_key(63 to 95);
+    w2 <= input_key(64 to 95);
     w3 <= input_key(96 to 127);
 
     g_function  :   g port map(w3, RC, g_out);

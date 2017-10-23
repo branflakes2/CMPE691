@@ -5,32 +5,32 @@ use IEEE.numeric_std.all;
 
 entity galois is
     port(
-        col_in  :   in  std_logic_vector(31 downto 0);
-        col_out :   out std_logic_vector(31 downto 0)
+        col_in  :   in  std_logic_vector(0 to 31);
+        col_out :   out std_logic_vector(0 to 31)
     );
 end galois;
 
 architecture behavior of galois is
 
-    signal z0   :   std_logic_vector(8 downto 0);
-    signal z1   :   std_logic_vector(8 downto 0);
-    signal z2   :   std_logic_vector(8 downto 0);
-    signal z3   :   std_logic_vector(8 downto 0);    
-    signal u0   :   std_logic_vector(7 downto 0);
-    signal u1   :   std_logic_vector(7 downto 0);
-    signal u2   :   std_logic_vector(7 downto 0);
-    signal u3   :   std_logic_vector(7 downto 0);
+    signal z0   :   std_logic_vector(0 to 8);
+    signal z1   :   std_logic_vector(0 to 8);
+    signal z2   :   std_logic_vector(0 to 8);
+    signal z3   :   std_logic_vector(0 to 8);    
+    signal u0   :   std_logic_vector(0 to 7);
+    signal u1   :   std_logic_vector(0 to 7);
+    signal u2   :   std_logic_vector(0 to 7);
+    signal u3   :   std_logic_vector(0 to 7);
 
 begin
 
-    z0 <= '0' & col_in(31 downto 24);
-    z1 <= '0' & col_in(23 downto 16);
-    z2 <= '0' & col_in(15 downto 8);
-    z3 <= '0' & col_in(7 downto 0);
+    z0 <= '0' & col_in(0 to 7);
+    z1 <= '0' & col_in(8 to 15);
+    z2 <= '0' & col_in(16 to 23);
+    z3 <= '0' & col_in(24 to 31);
     
     mix :   process
 
-        variable t0, t1, t2, t3 :   std_logic_vector(8 downto 0);    
+        variable t0, t1, t2, t3 :   std_logic_vector(0 to 8);    
 
     begin
         --02 03 01 01
@@ -45,7 +45,7 @@ begin
         end if;
         t2 := z2;
         t3 := z3;
-        u0 <= (t0(7 downto 0) xor t1(7 downto 0) xor t2(7 downto 0) xor t3(7 downto 0));
+        u0 <= (t0(0 to 7) xor t1(0 to 7) xor t2(0 to 7) xor t3(0 to 7));
         --01 02 03 01
         t1 := std_logic_vector(shift_left(unsigned(z1), 1));
         if t1(8) = '1' then
@@ -57,7 +57,7 @@ begin
         end if;
         t0 := z0;
         t3 := z3;
-        u1 <= (t0(7 downto 0) xor t1(7 downto 0) xor t2(7 downto 0) xor t3(7 downto 0));
+        u1 <= (t0(0 to 7) xor t1(0 to 7) xor t2(0 to 7) xor t3(0 to 7));
         
         --01 01 02 03
         t2 := std_logic_vector(shift_left(unsigned(z2), 1));
@@ -70,7 +70,7 @@ begin
         end if;
         t0 := z0;
         t1 := z1;
-        u2 <= (t0(7 downto 0) xor t1(7 downto 0) xor t2(7 downto 0) xor t3(7 downto 0));
+        u2 <= (t0(0 to 7) xor t1(0 to 7) xor t2(0 to 7) xor t3(0 to 7));
 
         --03 01 01 02
         t3 := std_logic_vector(shift_left(unsigned(z3), 1));
@@ -83,13 +83,13 @@ begin
         end if;
         t2 := z2;
         t1 := z1;
-        u3 <= (t0(7 downto 0) xor t1(7 downto 0) xor t2(7 downto 0) xor t3(7 downto 0));
+        u3 <= (t0(0 to 7) xor t1(0 to 7) xor t2(0 to 7) xor t3(0 to 7));
         
         wait for 1 fs;
-        col_out(7 downto 0) <= u3;
-        col_out(15 downto 8) <= u2;
-        col_out(23 downto 16) <= u1;
-        col_out(31 downto 24) <= u0;
+        col_out(0 to 7) <= u0;
+        col_out(8 to 15) <= u1;
+        col_out(16 to 23) <= u2;
+        col_out(24 to 31) <= u3;
         wait;
     end process;
 end behavior;
