@@ -1,0 +1,11 @@
+The script is written in python 3.6. It takes in input file in the format:
+
+<fault free ciphertext>
+<faulty ciphertext 1>
+<faulty ciphertext 2>
+<faulty ciphertext 3>
+
+input.txt is given as an example
+
+To run:
+python DFA.py <input file>
