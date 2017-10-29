@@ -1,0 +1,50 @@
+# This file contains the list of objects to create scsim.
+
+# --- $(VHDL_OBJS) dependency 
+VHDL_OBJS= $(EVENT_OBJS) $(CY_OBJS)
+
+LN      =ln -sf
+
+
+# --- create an archive for limited number objects..
+SCVHDL_0 = \
+	vh/DEFAULT__STD_LOGIC_TEXTIO__.o\
+	vh/DEFAULT__STD_LOGIC_SIGNED__.o\
+	vh/DEFAULT__STD_LOGIC_UNSIGNED__.o\
+	vh/DEFAULT__STD_LOGIC_ARITH__.o\
+	vh/DEFAULT__AES128PKG.o\
+	vh/DEFAULT__AES_128_TB__BEHAVIORAL.o\
+	vh/DEFAULT__NUMERIC_STD__.o\
+	vh/DEFAULT__AES_128__BEHAVIORAL.o\
+	vh/DEFAULT__KEYEXPANSION__BEHAVIORAL.o\
+	vh/DEFAULT__KEYXOR_128__BEHAVIORAL.o\
+	vh/DEFAULT__SBOX_128__BEHAVIORAL.o\
+	vh/DEFAULT__SHIFTROW_128__BEHAVIORAL.o\
+	vh/DEFAULT__MIXCOLUMN_128__BEHAVIORAL.o\
+	vh/DEFAULT__FAULT_INJECTOR__BEHAVIORAL.o\
+	vh/DEFAULT__SBOX__BEHAVIORAL.o\
+	vh/DEFAULT__MIXCOLUMN__BEHAVIORAL.o
+linux64_scvhdl_0.so: $(SCVHDL_0) vh/sc_filelist
+	@ld -shared -o $(VSRC)/simv.daidir/scsim.db.dir/linux64_scvhdl_0.so $(SCVHDL_0)
+	@$(LN) $(VSRC)/simv.daidir/scsim.db.dir/linux64_scvhdl_0.so linux64_scvhdl_0.so
+
+
+clean_scvhdl:
+	-@if [ -f $(VSRC)/simv.daidir/scsim.db.dir/linux64_scvhdl_0.so ]; then rm -f $(VSRC)/simv.daidir/scsim.db.dir/linux64_scvhdl_0.so; fi
+	-@if [ -h linux64_scvhdl_0.so ]; then rm -f linux64_scvhdl_0.so; fi
+
+EVENT_OBJS=\
+	linux64_scvhdl_0.so\
+	vh/ScMain.o\
+	vh/scscomm.o\
+	vh/scsFilelist.o
+
+vh/ScMain.o: vh/ScMain.c
+	@$(CC) $(CFLAGS) -o $@ -I$(SYNOPSYS_SIM)/include -c vh/ScMain.c
+
+vh/scscomm.o: vh/scscomm.c
+	@$(CC) $(CFLAGS) -o $@ -I$(SYNOPSYS_SIM)/include -I$(SYNOPSYS_SIM)/linux64/lib -c vh/scscomm.c
+
+vh/scsFilelist.o: vh/scsFilelist.c
+	@$(CC) $(CFLAGS) -o $@ -I$(SYNOPSYS_SIM)/include -c vh/scsFilelist.c
+

@@ -1,0 +1,5 @@
+I have been having trouble getting vhdl to work on the gl and cadence servers, 
+even after following the tutorial so I installed ghdl on my laptop. The vhdl I 
+wrote should work on any system (in theory). vigenere_test is the test bench 
+and the top level entity (aside from the test bech) is vigenere_cipher. in.txt 
+and out.txt are io files from tests that ran successfully on my laptop.
