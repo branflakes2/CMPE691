@@ -43,7 +43,7 @@ void scsim_comm_genfunc(scsim_communication_data_t *s) {
    s->UserName = (char *) sc_mem_malloc(8);
    strcpy(s->UserName, "brianw5");
    s->CreationDate = (char *) sc_mem_malloc(25);
-   strcpy(s->CreationDate, "Sun Oct 29 15:03:02 2017");
+   strcpy(s->CreationDate, "Thu Nov  2 03:01:18 2017");
    s->Hostname = (char *) sc_mem_malloc(21);
    strcpy(s->Hostname, "cadence2.cs.umbc.edu");
    s->SciroccoVersion = (char *) 0;
@@ -59,10 +59,10 @@ void scsim_comm_genfunc(scsim_communication_data_t *s) {
    s->LoaderVersion = (char *) 0;
    s->LoaderOptions = (char *) sc_mem_malloc(17);
    strcpy(s->LoaderOptions, "-Wl,-E -lpthread");
-   s->ElaborationOptions = (char *) sc_mem_malloc(19);
-   strcpy(s->ElaborationOptions, "-full64 aes_128_tb");
-   s->VhdlOptions = (char *) sc_mem_malloc(162);
-   strcpy(s->VhdlOptions, "-mxunielab -uni_make -nc -Xhdlxmropt -uum -vhtop WORK.dummy_mhdl_cfg_AES_128_TB -elaboration_options /tmp/vcs_20171029190300_20145/elaboptfile_20145 -picarchive ");
+   s->ElaborationOptions = (char *) sc_mem_malloc(33);
+   strcpy(s->ElaborationOptions, "-full64 -debug_access aes_128_tb");
+   s->VhdlOptions = (char *) sc_mem_malloc(195);
+   strcpy(s->VhdlOptions, "-mxunielab -uni_make -nc -Xhdlxmropt -uum -vhtop WORK.dummy_mhdl_cfg_AES_128_TB -elaboration_options /tmp/vcs_20171102070117_22489/elaboptfile_22489 -picarchive -debug_acc_options -debug_access ");
    s->VerilogOptions = (char *) 0;
    s->PartitionCount  = 0;
    s->Partitions  = (char **) 0;
@@ -101,7 +101,7 @@ void scsim_comm_genfunc(scsim_communication_data_t *s) {
    s->isUCLI = 0;
    s->isGUI = 0;
    s->smart_analysis = 0;
-   s->debugLevel = 0;
+   s->debugLevel = 3;
    s->vdbgWatch = 0;
    s->isFsdbSet = 0;
    s->isFsdbOldSet = 0;

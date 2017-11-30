@@ -2,8 +2,9 @@
 '''
 PUF_out.txt, which contains your analog output matrix, should be in the run directory of this script
 '''
+import sys
 
-with open("./PUF_out.txt",'r') as output_file:
+with open(sys.argv[1],'r') as output_file:
 	for line in output_file:
 		arr_out = []
 		arr = line.split(" ")

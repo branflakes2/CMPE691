@@ -28,7 +28,8 @@ architecture behavioral of aes_128_tb is
 		fault_bit : in std_logic_vector (2 downto 0);
 		fault_word2 : in std_logic_vector (1 downto 0);
 		fault_byte2 : in std_logic_vector (1 downto 0);
-		fault_bit2 : in std_logic_vector (2 downto 0)
+		fault_bit2 : in std_logic_vector (2 downto 0);
+        fault_detected  :   out std_logic := '0'
 		);
 	end component;
 
@@ -40,18 +41,23 @@ architecture behavioral of aes_128_tb is
 	signal fault_word2_sig, fault_byte2_sig : std_logic_vector (1 downto 0);
 	signal fault_bit_sig, fault_bit2_sig : std_logic_vector (2 downto 0);
 	signal hex_sig : std_logic_vector(3 downto 0);
-	
+    signal s_fault_detected   :   std_logic := '0';	
+    shared variable DONE    :   boolean := false;
 	begin
  
 	-- uut
-    uut: aes_128 PORT MAP (clock_sig, reset_sig, data_sig, key_sig, ciphertext_sig, done_sig, faulty_sig, fault_round_sig, fault_function_sig, fault_word_sig, fault_byte_sig, fault_bit_sig, fault_word2_sig, fault_byte2_sig, fault_bit2_sig);
+    uut: aes_128 PORT MAP (clock_sig, reset_sig, data_sig, key_sig, ciphertext_sig, done_sig, faulty_sig, fault_round_sig, fault_function_sig, fault_word_sig, fault_byte_sig, fault_bit_sig, fault_word2_sig, fault_byte2_sig, fault_bit2_sig, s_fault_detected);
 	
 	clock_process :process
 	begin
-		clock_sig <= '0';
-		wait for 20 ns;
-		clock_sig <= '1';
-		wait for 20 ns;
+        if DONE = true then
+            wait;
+        else
+            clock_sig <= '0';
+            wait for 20 ns;
+            clock_sig <= '1';
+            wait for 20 ns;
+        end if;
 	end process;
 	
 	io_process: process
@@ -120,7 +126,7 @@ architecture behavioral of aes_128_tb is
 				data_sig(idy)(idx) <= hex_var & hex_var2;			
 			end loop;
 		end loop;
-		
+
 		reset_sig <= '0';
 		wait for 40 ns;
 		reset_sig <= '1';
@@ -146,6 +152,11 @@ architecture behavioral of aes_128_tb is
 		hwrite (result_line, ciphertext_sig(3)(3));
 		wait for 10 ns;
 		writeline (result_file, result_line);
+
+        --write fault detection to out file
+        write (result_line, string'("Fault Detected: "));
+        write (result_line, s_fault_detected);
+        writeline (result_file, result_line);
 		write (result_line, string'(" "));
 		writeline (output, result_line);
 		write (result_line, string'("----------------------------------------"));
@@ -154,7 +165,7 @@ architecture behavioral of aes_128_tb is
 		writeline (output, result_line);
 		write (result_line, string'("----------------------------------------"));
 		writeline (output, result_line);
-		
+		DONE := true;
 		wait;
 		
 	end process;

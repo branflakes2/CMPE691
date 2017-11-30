@@ -20,7 +20,10 @@ entity aes_128 is
 	fault_bit : in std_logic_vector (2 downto 0);
 	fault_word2 : in std_logic_vector (1 downto 0);
 	fault_byte2 : in std_logic_vector (1 downto 0);
-	fault_bit2 : in std_logic_vector (2 downto 0)
+	fault_bit2 : in std_logic_vector (2 downto 0);
+
+    --goes high when a fault is detected
+    fault_detected  :   out std_logic := '0'
 	);
 end entity aes_128;
 
@@ -93,6 +96,43 @@ component fault_injector
 	);
 end component;
 
+--error checking components
+component sbox_check
+    port(
+        data_reg            :   in  Matrix;
+        sbox_out_eff_sig    :   in  Matrix;
+        clock               :   in  std_logic;
+        err_detect          :   out std_logic := '0'
+    );
+end component;
+
+component sr_check is
+    port(
+        input       :   in  Matrix;
+        output      :   in  Matrix;
+        clock       :   in  std_logic;
+        err_detect  :   out std_logic := '0'
+    );
+end component;
+
+component sc_check is
+    port(
+        input       :   in  Matrix;
+        output      :   in  Matrix;
+        clock       :   in  std_logic;
+        err_detect  :   out std_logic := '0'
+    );
+end component;
+  
+component key_check
+    port(
+        input       :   in  Matrix;
+        output      :   in  Matrix;
+        key         :   in  Matrix;
+        err_detect  :   out std_logic := '0'
+    );
+end component;
+
 -- signals
 signal data_sig, data_reg, user_key_sig, key_round : Matrix;
 signal done_sig, faulty_sig, state : std_logic;
@@ -119,7 +159,6 @@ signal sbox_error   :   std_logic := '0';
 signal srow_error   :   std_logic := '0';
 signal scol_error   :   std_logic := '0';
 signal akey_error   :   std_logic := '0';
-signal err_detect   :   std_logic := '0';
 
 begin
 
@@ -187,17 +226,12 @@ keyXor_128_c: keyXor_128 port map (shiftRow_out_eff_sig, key_sig(10), keyXor_10_
 fault_injector_x: fault_injector port map (faulty_sig, fault_round_sig, fault_function_sig, fault_word_sig, fault_byte_sig, fault_bit_sig, fault_word2_sig, fault_byte2_sig, fault_bit2_sig, key_index_vector_sig, keyXor_0_out_sig, keyXor_10_out_sig, keyXor_out_sig, sbox_out_sig, shiftRow_out_sig, mixColumn_out_sig, keyXor_0_out_eff_sig, keyXor_10_out_eff_sig, keyXor_out_eff_sig, sbox_out_eff_sig, shiftRow_out_eff_sig, mixColumn_out_eff_sig);
 
 --Error Detection--
-sbox_err    :   sbox_check port map(data_reg, sbox_out_eff_sig, sbox_error);
---row shift err detection
---col shift err detection
---add key err detection
+sbox_err    :   sbox_check port map(data_reg, sbox_out_eff_sig, clock, sbox_error);
+sr_err      :   sr_check port map(sbox_out_eff_sig, shiftRow_out_eff_sig, clock, srow_error);
+sc_err      :   sc_check port map(shiftRow_out_eff_sig, mixColumn_out_eff_sig, clock, scol_error);
+key_err     :   key_check port map(mixColumn_out_eff_sig, keyXor_out_eff_sig, key_round, akey_error);
 
-err_detect <= sbox_error or srow_error or scol_error or akey_error;
+fault_detected <= sbox_error or srow_error or scol_error or akey_error;
 
-signal sbox_error   :   std_logic;
-signal srow_error   :   std_logic;
-signal scol_error   :   std_logic;
-signal akey_error   :   std_logic;
-signal err_detect   :   std_logic;
 
 end architecture Behavioral;

@@ -1,0 +1,74 @@
+# Preference setting overrides
+gui_create_pref_key -category {Globals} -key {load_detail_for_funcov} -value_type {bool} -value {false}
+
+# State setting overrides
+gui_state_default_create -off -ini
+gui_set_state_value -category Layout -key child_console_size_x -value 295
+gui_set_state_value -category Layout -key child_console_size_y -value 290
+gui_set_state_value -category Layout -key child_data_size_x -value 148
+gui_set_state_value -category Layout -key child_data_size_y -value 1038
+gui_set_state_value -category Layout -key child_hier_col3 -value {-1}
+gui_set_state_value -category Layout -key child_hier_colhier -value 338
+gui_set_state_value -category Layout -key child_hier_colpd -value 0
+gui_set_state_value -category Layout -key child_hier_coltype -value 107
+gui_set_state_value -category Layout -key child_hier_size_x -value 447
+gui_set_state_value -category Layout -key child_hier_size_y -value 1038
+gui_set_state_value -category Layout -key child_source_pos_x -value {-2}
+gui_set_state_value -category Layout -key child_source_pos_y -value {-15}
+gui_set_state_value -category Layout -key child_source_size_x -value 683
+gui_set_state_value -category Layout -key child_source_size_y -value 1033
+gui_set_state_value -category Layout -key child_wave_colname -value 182
+gui_set_state_value -category Layout -key child_wave_colvalue -value 183
+gui_set_state_value -category Layout -key child_wave_left -value 369
+gui_set_state_value -category Layout -key child_wave_right -value 901
+gui_set_state_value -category Layout -key main_pos_x -value 2
+gui_set_state_value -category Layout -key main_pos_y -value 2
+gui_set_state_value -category Layout -key main_size_x -value 1277
+gui_set_state_value -category Layout -key main_size_y -value 1437
+gui_set_state_value -category Layout -key stand_wave_child_pos_x -value {-2}
+gui_set_state_value -category Layout -key stand_wave_child_pos_y -value {-15}
+gui_set_state_value -category Layout -key stand_wave_child_size_x -value 1280
+gui_set_state_value -category Layout -key stand_wave_child_size_y -value 1323
+gui_set_state_value -category Layout -key stand_wave_top_pos_x -value 1282
+gui_set_state_value -category Layout -key stand_wave_top_pos_y -value 2
+gui_set_state_value -category Layout -key stand_wave_top_size_x -value 2557
+gui_set_state_value -category Layout -key stand_wave_top_size_y -value 1437
+gui_create_state_key -category FindDialog -key m_pMatchCase -value_type bool -value false
+gui_create_state_key -category FindDialog -key m_pMatchWord -value_type bool -value false
+gui_create_state_key -category FindDialog -key m_pUseCombo -value_type string -value {}
+gui_create_state_key -category FindDialog -key m_pWrapAround -value_type bool -value true
+gui_state_default_create -off
+
+# Begin command logging
+gui_set_pref_value -category {Globals} -key {smart_resize} -value {false}
+gui_set_pref_value -category {Globals} -key {smart_resize} -value {true}
+gui_sim_run Ucli -exe ./simv -args {-ucligui  } -dir .
+gui_list_expand -id  Hier.1   /AES_128_TB
+gui_list_select -id Data.1 -selected  { /AES_128_TB/UUT/FAULTY_SIG   }
+gui_list_expand -id  Hier.1   /AES_128_TB/UUT
+gui_list_select -id Hier.1 -current_item_name /AES_128_TB/UUT -current_item_type Scope  -selected  { /AES_128_TB/UUT   }
+gui_list_select -id Data.1 -selected  { {/AES_128_TB/UUT/FAULT_BIT2(2 downto 0)}   }
+gui_list_select -id Data.1 -selected  { /AES_128_TB/UUT/FAULT_DETECTED   }
+gui_open_window Wave
+gui_list_add -id Wave.1 -from Data.1 { /AES_128_TB/UUT/FAULT_DETECTED } -insertionbar
+gui_sim_continue  
+gui_zoom -window Wave.1 -full
+gui_list_select -id Data.1 -selected  { {/AES_128_TB/UUT/SBOX_ERR/DATA_REG(0 to 3)}   }
+gui_list_add -id Wave.1 -from Data.1 { {/AES_128_TB/UUT/SBOX_ERR/DATA_REG(0 to 3)} } -insertionbar
+gui_list_select -id Data.1 -selected  { {/AES_128_TB/UUT/SBOX_ERR/SBOX_OUT_EFF_SIG(0 to 3)}   }
+gui_list_add -id Wave.1 -from Data.1 { {/AES_128_TB/UUT/SBOX_ERR/SBOX_OUT_EFF_SIG(0 to 3)} } -insertionbar
+gui_list_select -id Data.1 -selected  { /AES_128_TB/UUT/SBOX_ERR/ERR_DETECT   }
+gui_list_add -id Wave.1 -from Data.1 { /AES_128_TB/UUT/SBOX_ERR/ERR_DETECT } -insertionbar
+gui_list_select -id Data.1 -selected  { {/AES_128_TB/UUT/SBOX_ERR/OUT_CORRECT(0 to 3)}   }
+gui_list_add -id Wave.1 -from Data.1 { {/AES_128_TB/UUT/SBOX_ERR/OUT_CORRECT(0 to 3)} } -insertionbar
+gui_list_select -id Data.1 -selected  { {/AES_128_TB/UUT/SBOX_ERR/OUT_ACTUAL(0 to 3)}   }
+gui_list_add -id Wave.1 -from Data.1 { {/AES_128_TB/UUT/SBOX_ERR/OUT_ACTUAL(0 to 3)} } -insertionbar
+gui_list_select -id Data.1 -selected  { /AES_128_TB/UUT/SBOX_ERR/DELAY_CLK   }
+gui_list_add -id Wave.1 -from Data.1 { /AES_128_TB/UUT/SBOX_ERR/DELAY_CLK } -insertionbar
+gui_zoom -window Wave.1 -full
+gui_sim_restart
+gui_sim_continue  
+gui_zoom -window Wave.1 -full
+gui_wv_zoom_timerange -id  Wave.1 405 511
+#gui_exit
+

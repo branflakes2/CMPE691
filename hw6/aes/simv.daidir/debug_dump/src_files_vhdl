@@ -9,8 +9,15 @@
 /afs/umbc.edu/users/b/r/brianw5/home/CMPE691/hw6/aes/fault_injector.vhd
 /afs/umbc.edu/users/b/r/brianw5/home/CMPE691/hw6/aes/keyExpansion.vhd
 /afs/umbc.edu/users/b/r/brianw5/home/CMPE691/hw6/aes/keyXor_128.vhd
+/afs/umbc.edu/users/b/r/brianw5/home/CMPE691/hw6/aes/key_check.vhd
 /afs/umbc.edu/users/b/r/brianw5/home/CMPE691/hw6/aes/mixColumn.vhd
 /afs/umbc.edu/users/b/r/brianw5/home/CMPE691/hw6/aes/mixColumn_128.vhd
+/afs/umbc.edu/users/b/r/brianw5/home/CMPE691/hw6/aes/parity_8.vhd
+/afs/umbc.edu/users/b/r/brianw5/home/CMPE691/hw6/aes/parity_8_4.vhd
+/afs/umbc.edu/users/b/r/brianw5/home/CMPE691/hw6/aes/parity_check.vhd
 /afs/umbc.edu/users/b/r/brianw5/home/CMPE691/hw6/aes/sbox.vhd
 /afs/umbc.edu/users/b/r/brianw5/home/CMPE691/hw6/aes/sbox_128.vhd
+/afs/umbc.edu/users/b/r/brianw5/home/CMPE691/hw6/aes/sbox_check.vhd
+/afs/umbc.edu/users/b/r/brianw5/home/CMPE691/hw6/aes/sc_check.vhd
 /afs/umbc.edu/users/b/r/brianw5/home/CMPE691/hw6/aes/shiftRow_128.vhd
+/afs/umbc.edu/users/b/r/brianw5/home/CMPE691/hw6/aes/sr_check.vhd

@@ -1,7 +1,7 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
 use work.numeric_std.all;
-use work.std_logic_unsigned.all
+use work.std_logic_unsigned.all;
 use work.aes128Pkg.all;
 
 entity parity_8_4 is
@@ -22,8 +22,8 @@ end component;
 
 begin
     
-    for i in 0 to 3 generate
+    g   :   for i in 0 to 3 generate
         row_x   :   parity_8 port map(row_in(i), p_out(i));
-    end generate;
+    end generate g;
 
 end Behavioral;

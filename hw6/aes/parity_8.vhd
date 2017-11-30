@@ -13,16 +13,11 @@ end parity_8;
 
 architecture Behavioral of parity_8 is
 
+    signal par  :   std_logic := '0';
+
 begin
 
-    p   :   process
-        variable    p   :   std_logic := '0';
-    begin
-        for i in 7 downto 0 loop:
-            p := p xor input(i);
-        end loop;
-        output <= p;        
-    end process;
+    output <= input(0) xor input(1) xor input(2) xor input(3) xor input(4) xor input(5) xor input(6) xor input(7);
 
 end Behavioral;
     

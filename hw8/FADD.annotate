@@ -1,0 +1,114 @@
+ ****** HSPICE -- L-2016.06-SP2-2 linux64 (Jan 24 2017) RHEL64    ******
+  Copyright (c) 1986 - 2017 by Synopsys, Inc. All Rights Reserved.
+  This software and the associated documentation are proprietary
+  to Synopsys, Inc. This software may only be used in accordance
+  with the terms and conditions of a written license agreement with
+  Synopsys, Inc. All other use, reproduction, or distribution of
+  this software is strictly prohibited.
+
+================================================================
+*** This file format is subject to change **
+#Annotation for local variation contributors
+#=============
+<<fall_difference>> # Global_Variation 12.6864%  Local_Variation 87.3136% IRV_Variation 0%
+xadder_2.xxor_1   7.88387% 0
+xadder_0.xxor_0   7.59473% 0
+xadder_1.xxor_1   5.01401% 4
+xadder_1.xor_1    4.66023% 0
+xadder_0.xxor_1   4.63574% 1
+xadder_0.xor_0    3.68712% 2
+xadder_3.xxor_1   3.61242% 1
+xadder_1.xxor_0   3.56281% 1
+xadder_2.xand_0   3.49358% 1
+xadder_0.xor_1    3.44862% 4
+xadder_3.xor_0    3.28698% 2
+xadder_2.xor_0    3.16362% 2
+xadder_1.xor_0    2.8708% 2
+xadder_3.xand_0   2.79932% 2
+xadder_1.xand_1   2.75357% 1
+xadder_2.xand_2   2.73483% 1
+xadder_3.xor_1    2.42483% 2
+xadder_1.xand_2   2.42034% 3
+xadder_3.xxor_0   2.36783% 5
+xadder_0.xand_1   2.34572% 4
+xadder_3.xand_2   2.24667% 1
+xadder_2.xand_1   2.19479% 1
+xadder_1.xand_0   2.09598% 5
+xadder_2.xxor_0   2.02014% 3
+<<fall_time>> # Global_Variation 6.75491%  Local_Variation 93.2451% IRV_Variation 0%
+xadder_0.xxor_1   12.1076% 1
+xadder_1.xxor_1   6.30515% 0
+xadder_1.xxor_0   6.28928% 0
+xadder_0.xand_0   5.69342% 1
+xadder_0.xxor_0   5.55167% 0
+xadder_2.xxor_1   5.21221% 0
+xadder_0.xor_0    5.09271% 1
+xadder_3.xor_0    4.34146% 0
+xadder_3.xand_2   4.09746% 3
+xadder_0.xand_1   3.44507% 0
+xadder_1.xand_2   3.35593% 3
+xadder_1.xand_1   3.02396% 2
+xadder_2.xor_0    2.75635% 4
+xadder_3.xxor_1   2.64272% 4
+xadder_0.xand_2   2.48172% 0
+xadder_2.xor_1    2.26406% 0
+xadder_1.xand_0   2.08744% 2
+xadder_0.xor_1    2.05931% 2
+xadder_3.xxor_0   1.88929% 2
+xadder_2.xand_1   1.86826% 0
+xadder_3.xor_1    1.69885% 4
+xadder_2.xand_0   1.69759% 0
+xadder_1.xor_1    1.59182% 4
+xadder_2.xxor_0   1.55717% 0
+<<rise_difference>> # Global_Variation 13.7745%  Local_Variation 86.2255% IRV_Variation 0%
+xadder_0.xxor_1   6.96932% 1
+xadder_0.xor_0    6.15884% 0
+xadder_2.xxor_1   6.09591% 1
+xadder_3.xxor_0   5.37751% 3
+xadder_0.xand_1   4.65339% 0
+xadder_0.xand_0   4.29723% 1
+xadder_3.xxor_1   4.21996% 1
+xadder_1.xor_1    4.07137% 0
+xadder_1.xor_0    3.7024% 0
+xadder_2.xor_0    3.46446% 3
+xadder_3.xor_0    3.44773% 3
+xadder_0.xxor_0   3.16457% 3
+xadder_3.xand_0   3.06411% 0
+xadder_0.xand_2   2.89721% 0
+xadder_2.xand_2   2.67045% 2
+xadder_1.xxor_0   2.64363% 2
+xadder_1.xand_0   2.27291% 3
+xadder_3.xand_2   2.20673% 3
+xadder_3.xor_1    2.1121% 3
+xadder_1.xxor_1   2.00061% 0
+xadder_2.xxor_0   1.65489% 0
+xadder_2.xand_1   1.48252% 2
+xadder_0.xor_1    1.46684% 0
+xadder_1.xand_1   1.44527% 0
+<<rise_time>> # Global_Variation 6.65968%  Local_Variation 93.3403% IRV_Variation 0%
+xadder_0.xxor_1   11.5147% 0
+xadder_1.xor_1    6.56968% 0
+xadder_2.xxor_1   5.91302% 1
+xadder_0.xand_2   5.74803% 0
+xadder_1.xxor_1   5.72454% 1
+xadder_1.xxor_0   4.53203% 1
+xadder_3.xxor_1   3.98476% 0
+xadder_3.xor_1    3.90346% 0
+xadder_2.xand_0   3.79945% 0
+xadder_3.xor_0    3.68633% 0
+xadder_2.xor_0    3.62661% 0
+xadder_0.xand_1   3.44619% 1
+xadder_3.xand_0   3.17798% 1
+xadder_0.xand_0   3.15556% 1
+xadder_3.xxor_0   2.85429% 0
+xadder_1.xand_0   2.82619% 2
+xadder_2.xor_1    2.49035% 2
+xadder_0.xxor_0   2.2969% 2
+xadder_2.xxor_0   2.15524% 0
+xadder_1.xor_0    1.86628% 2
+xadder_0.xor_1    1.81335% 0
+xadder_3.xand_2   1.47501% 0
+xadder_1.xand_2   1.43514% 2
+xadder_2.xand_1   1.21251% 2
+#=============
+#Selective simulation for extreme corners: Monte= list( 7, 15, 17, 18, 20, 22, 28)

@@ -1,5 +1,5 @@
 #!/bin/sh -e
 
-vcs '-full64' 'aes_128_tb' "-lca" "-makedepends=Makefile.VCSMX_FOR_DVE_REBUILD"
+vcs '-full64' '-debug_access' 'aes_128_tb' "-lca" "-makedepends=Makefile.VCSMX_FOR_DVE_REBUILD"
 gmake -f Makefile.VCSMX_FOR_DVE_REBUILD
-vcs '-full64' 'aes_128_tb'
+vcs '-full64' '-debug_access' 'aes_128_tb'
