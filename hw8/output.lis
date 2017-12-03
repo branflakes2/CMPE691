@@ -1,0 +1,247 @@
+ ****** HSPICE -- L-2016.06-SP2-2 linux64 (Jan 24 2017) ******                  
+  Copyright (c) 1986 - 2017 by Synopsys, Inc. All Rights Reserved.              
+  This software and the associated documentation are proprietary
+  to Synopsys, Inc. This software may only be used in accordance
+  with the terms and conditions of a written license agreement with
+  Synopsys, Inc. All other use, reproduction, or distribution of
+  this software is strictly prohibited.
+  Input File: PUF.sp                                                            
+  Command line options: /afs/umbc.edu/software/synopsys/software/hspice/hspice/linux64/hspice PUF.sp -o output.lis
+ lic:  
+ lic: FLEXlm: v11.2.1 
+ lic: USER:   brianw5              HOSTNAME: cadence1.cs.umbc.edu 
+ lic: HOSTID: "00188b42fa47"       PID:      12009 
+ lic: Using FLEXlm license file: 
+ lic: 27020@license5.umbc.edu 
+ lic: Checkout 1 hspice 
+ lic: License/Maintenance for hspice will expire on 25-mar-2018/2016.06 
+ lic: 4(in_use)/50(total) FLOATING license(s) on SERVER 27020@license5.umbc.edu 
+ lic:   
+  **warning** (PUF.sp:9) runlvl smaller than 5, reset to 5 when accurate turned on
+  **info** Monte Carlo simulation is detected, increase number of measure digits to 7 for Monte Carlo post processing.
+
+ **warning**  runlvl smaller than 5, reset to 5 when accurate turned on
+  **info** (PUF.sp:25) DC voltage reset to initial transient source value in source 0:vclk. new dc=0.0000D+00
+  **warning** (pmos_vtl:m_mp2 (/afs/umbc.edu/users/b/r/brianw5/home/CMPE691/hw8/all_gates:219)) Warning:  Acde = 0.300892 may be too small in BSIM4 model with w=3.15e-07 l=5e-08.
+*** info *** index=1 is a nominal sample in Monte Carlo.
+*** info *** The MCG Random Number Generator and .Option Use_Agauss_Format = Yes are set as defaults starting with HSPICE L-2016.06 to address the needs of advanced technology nodes with large samples and/or large circuits, particularly for distributed processing.
+*** Should you want backward compatibility, please use the following options:
+For traditional Gaussian style variations, use .Option Random_Generator = 3LC;
+For Variation Block style variations, use .Option Random_Generator = MOA.
+  
+      
+
+MONTE CARLO DEFINITIONS
+
+
+Option sampling_method was set, variation block and agauss format variation are in effect.
+
+Random number generator is MCG            , and seed =      1, stream =   1
+ **info** set option symb=1 internally to help for convergence.
+ *****************************************************************
+ ******  option summary
+ ******
+ runlvl  = 5         bypass  = 2.0000    
+  Opening plot unit= 15
+ file=output.pa0
+
+
+   *** monte carlo  index =            1 ***
+
+ ******
+ **puf spice file**
+
+ ****** transient analysis tnom=  25.000 temp=  80.000 ******
+x
+
+ time         voltage    voltage    voltage    voltage   
+             in         out0       out1       out2       
+  5.0000e-09  0.000e+00  1.474e-04  1.474e-04  1.474e-04 
+  1.0000e-08  0.000e+00  1.474e-04  1.474e-04  1.474e-04 
+  1.5000e-08  0.000e+00  1.474e-04  1.474e-04  1.474e-04 
+  2.0000e-08  0.000e+00  1.474e-04  1.474e-04  1.474e-04 
+  2.5000e-08  0.000e+00  1.474e-04  1.474e-04  1.474e-04 
+  3.0000e-08  0.000e+00  1.474e-04  1.474e-04  1.474e-04 
+  3.5000e-08  0.000e+00  1.473e-04  1.473e-04  1.473e-04 
+  4.0000e-08  0.000e+00  1.474e-04  1.474e-04  1.474e-04 
+  4.5000e-08  0.000e+00  1.474e-04  1.474e-04  1.474e-04 
+  5.0000e-08  0.000e+00  1.474e-04  1.474e-04  1.474e-04 
+  5.5000e-08  0.000e+00  1.474e-04  1.474e-04  1.474e-04 
+  6.0000e-08  0.000e+00  1.474e-04  1.474e-04  1.474e-04 
+  6.5000e-08  0.000e+00  1.474e-04  1.474e-04  1.474e-04 
+  7.0000e-08  0.000e+00  1.473e-04  1.473e-04  1.473e-04 
+  7.5000e-08  0.000e+00  1.474e-04  1.474e-04  1.474e-04 
+  8.0000e-08  0.000e+00  1.474e-04  1.474e-04  1.474e-04 
+y
+x
+
+ time         voltage    voltage    voltage    voltage   
+             out3       out4       out5       out6       
+  5.0000e-09  1.474e-04  1.474e-04  1.474e-04  1.474e-04 
+  1.0000e-08  1.474e-04  1.474e-04  1.474e-04  1.474e-04 
+  1.5000e-08  1.474e-04  1.474e-04  1.474e-04  1.474e-04 
+  2.0000e-08  1.474e-04  1.474e-04  1.474e-04  1.474e-04 
+  2.5000e-08  1.474e-04  1.474e-04  1.474e-04  1.474e-04 
+  3.0000e-08  1.474e-04  1.474e-04  1.474e-04  1.474e-04 
+  3.5000e-08  1.473e-04  1.473e-04  1.473e-04  1.473e-04 
+  4.0000e-08  1.474e-04  1.474e-04  1.474e-04  1.474e-04 
+  4.5000e-08  1.474e-04  1.474e-04  1.474e-04  1.474e-04 
+  5.0000e-08  1.474e-04  1.474e-04  1.474e-04  1.474e-04 
+  5.5000e-08  1.474e-04  1.474e-04  1.474e-04  1.474e-04 
+  6.0000e-08  1.474e-04  1.474e-04  1.474e-04  1.474e-04 
+  6.5000e-08  1.474e-04  1.474e-04  1.474e-04  1.474e-04 
+  7.0000e-08  1.473e-04  1.473e-04  1.473e-04  1.473e-04 
+  7.5000e-08  1.474e-04  1.474e-04  1.474e-04  1.474e-04 
+  8.0000e-08  1.474e-04  1.474e-04  1.474e-04  1.474e-04 
+y
+x
+
+ time         voltage   
+             out7       
+  5.0000e-09  1.474e-04 
+  1.0000e-08  1.474e-04 
+  1.5000e-08  1.474e-04 
+  2.0000e-08  1.474e-04 
+  2.5000e-08  1.474e-04 
+  3.0000e-08  1.474e-04 
+  3.5000e-08  1.473e-04 
+  4.0000e-08  1.474e-04 
+  4.5000e-08  1.474e-04 
+  5.0000e-08  1.474e-04 
+  5.5000e-08  1.474e-04 
+  6.0000e-08  1.474e-04 
+  6.5000e-08  1.474e-04 
+  7.0000e-08  1.473e-04 
+  7.5000e-08  1.474e-04 
+  8.0000e-08  1.474e-04 
+y
+
+          ***** job concluded
+
+   *** monte carlo  index =            2 ***
+
+x
+
+ time         voltage    voltage    voltage    voltage   
+             in         out0       out1       out2       
+  5.0000e-09  0.000e+00  1.100e+00  1.100e+00  1.100e+00 
+  1.0000e-08  0.000e+00  1.187e-04  7.130e-04  8.863e-02 
+  1.5000e-08  0.000e+00  1.186e-04  7.131e-04  8.863e-02 
+  2.0000e-08  0.000e+00  1.187e-04  1.100e+00  8.863e-02 
+  2.5000e-08  0.000e+00  1.187e-04  7.130e-04  8.863e-02 
+  3.0000e-08  0.000e+00  1.100e+00  7.131e-04  8.863e-02 
+  3.5000e-08  0.000e+00  1.186e-04  1.100e+00  8.863e-02 
+  4.0000e-08  0.000e+00  1.100e+00  7.130e-04  8.863e-02 
+  4.5000e-08  0.000e+00  1.100e+00  7.130e-04  8.863e-02 
+  5.0000e-08  0.000e+00  1.187e-04  7.130e-04  8.863e-02 
+  5.5000e-08  0.000e+00  1.100e+00  7.130e-04  8.863e-02 
+  6.0000e-08  0.000e+00  1.186e-04  1.100e+00  8.863e-02 
+  6.5000e-08  0.000e+00  1.187e-04  7.131e-04  8.863e-02 
+  7.0000e-08  0.000e+00  1.186e-04  7.130e-04  8.863e-02 
+  7.5000e-08  0.000e+00  1.187e-04  7.131e-04  8.863e-02 
+  8.0000e-08  0.000e+00  1.188e-04  7.130e-04  8.863e-02 
+y
+x
+
+ time         voltage    voltage    voltage    voltage   
+             out3       out4       out5       out6       
+  5.0000e-09  1.100e+00  1.100e+00  1.100e+00  1.500e-04 
+  1.0000e-08  8.393e-05  7.964e-05  1.100e+00  1.499e-04 
+  1.5000e-08  8.388e-05  7.962e-05  4.416e-03  1.500e-04 
+  2.0000e-08  8.404e-05  1.100e+00  4.418e-03  1.500e-04 
+  2.5000e-08  1.100e+00  7.964e-05  1.100e+00  1.498e-04 
+  3.0000e-08  8.389e-05  7.963e-05  4.416e-03  1.501e-04 
+  3.5000e-08  1.100e+00  7.969e-05  1.100e+00  1.500e-04 
+  4.0000e-08  8.389e-05  1.100e+00  4.417e-03  1.499e-04 
+  4.5000e-08  8.389e-05  7.966e-05  4.418e-03  1.499e-04 
+  5.0000e-08  1.100e+00  7.974e-05  4.416e-03  1.498e-04 
+  5.5000e-08  1.100e+00  7.974e-05  4.418e-03  1.501e-04 
+  6.0000e-08  8.390e-05  7.962e-05  4.416e-03  1.500e-04 
+  6.5000e-08  8.405e-05  7.954e-05  4.416e-03  1.499e-04 
+  7.0000e-08  1.100e+00  7.967e-05  1.100e+00  1.499e-04 
+  7.5000e-08  8.392e-05  7.975e-05  4.416e-03  1.500e-04 
+  8.0000e-08  8.391e-05  7.962e-05  4.416e-03  1.499e-04 
+y
+x
+
+ time         voltage   
+             out7       
+  5.0000e-09  9.359e-05 
+  1.0000e-08  9.364e-05 
+  1.5000e-08  9.359e-05 
+  2.0000e-08  9.357e-05 
+  2.5000e-08  9.364e-05 
+  3.0000e-08  1.100e+00 
+  3.5000e-08  9.369e-05 
+  4.0000e-08  9.360e-05 
+  4.5000e-08  9.363e-05 
+  5.0000e-08  1.100e+00 
+  5.5000e-08  9.365e-05 
+  6.0000e-08  9.362e-05 
+  6.5000e-08  9.361e-05 
+  7.0000e-08  9.374e-05 
+  7.5000e-08  1.100e+00 
+  8.0000e-08  1.100e+00 
+y
+
+          ***** job concluded
+
+   *** monte carlo  index =            3 ***
+
+ **error** stop simulation by signal SIGINT = 2
+
+1****** HSPICE -- L-2016.06-SP2-2 linux64 (Jan 24 2017) ******                  
+ ******  
+ **puf spice file**
+
+ ****** job statistics summary tnom=  25.000 temp=  80.000 ******
+  
+  
+ ******  Machine Information  ******
+ CPU:
+ model name	: Intel(R) Xeon(R) CPU            5160  @ 3.00GHz
+ cpu MHz	: 2992.473
+  
+ OS:
+ Linux version 4.12.8-200.fc25.x86_64 (mockbuild@bkernel01.phx2.fedoraproject.org) (gcc version 6.4.1 20170727 (Red Hat 6.4.1-1) (GCC) ) #1 SMP Thu Aug 17 15:39:27 UTC 2017
+
+
+  ******  HSPICE Threads Information  ******
+
+  Command Line Threads Count :     1
+  Available CPU Count        :     4
+  Actual Threads Count       :     1
+
+
+  ******  Circuit Statistics  ******
+  # nodes       =   24083 # elements   =    5362
+  # resistors   =       0 # capacitors =       0 # inductors   =       0
+  # mutual_inds =       0 # vccs       =       0 # vcvs        =       0
+  # cccs        =       0 # ccvs       =       0 # volt_srcs   =      18
+  # curr_srcs   =       0 # diodes     =       0 # bjts        =       0
+  # jfets       =       0 # mosfets    =    5344 # U elements  =       0
+  # T elements  =       0 # W elements =       0 # B elements  =       0
+  # S elements  =       0 # P elements =       0 # va device   =       0
+  # vector_srcs =       0 # N elements =       0
+
+
+  ******  Runtime Statistics (seconds)  ******
+
+  analysis           time    # points   tot. iter  conv.iter
+  op point           2.04           1          38
+  transient       2293.79         128      153506       46653 rev=      1748
+  readin             0.02
+  errchk             0.66
+  setup              0.41
+  output             0.00
+
+
+           peak memory used        332.51 megabytes
+           total cpu time         3539.37 seconds
+           total elapsed time     6640.21 seconds
+           job started at     17:00:02 12/02/2017
+           job ended   at     18:50:42 12/02/2017
+
+
+ lic: Release hspice token(s) 
+ lic: total license checkout elapse time:        0.15(s)

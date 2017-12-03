@@ -1,0 +1,54 @@
+****** HSPICE -- L-2016.06-SP2-2 linux64 (Jan 24 2017) ******
+ Input File: PUF.sp
+ lic:
+ lic: FLEXlm: v11.2.1
+ lic: USER:   brianw5              HOSTNAME: cadence1.cs.umbc.edu
+ lic: HOSTID: "00188b42fa47"       PID:      12009
+ lic: Using FLEXlm license file:
+ lic: 27020@license5.umbc.edu
+ lic: Checkout 1 hspice
+ lic: License/Maintenance for hspice will expire on 25-mar-2018/2016.06
+ lic: 4(in_use)/50(total) FLOATING license(s) on SERVER 27020@license5.umbc.edu
+ lic:
+ init: begin read circuit files,  cpu clock=  8.00E-02
+       option search = /afs/umbc.edu/software/synopsys/software/hspice/
+                         hspice/parts/ad
+       option runlvl
+       option post
+       option brief
+       option probe
+       option accurate
+       option ingold =     2.00
+       option measdgt =     8.00
+ init: end read circuit files,  cpu clock=  9.00E-02 peak memory=       236 mb
+ init: begin check errors,  cpu clock=  9.00E-02
+ init: end check errors,  cpu clock=  7.50E-01 peak memory=       316 mb
+ init: begin setup matrix, pivot=     0 cpu clock=  7.50E-01
+       establish matrix -- done,  cpu clock=  8.10E-01 peak memory=       319 mb
+       re-order matrix -- done,  cpu clock=  1.12E+00 peak memory=       330 mb
+ init: end setup matrix,  cpu clock=  1.16E+00 peak memory=       332 mb
+ sweep: monte_carlo     monte_carlo1     begin, #sweeps =   8
+ dcop: begin dcop,  cpu clock=  1.48E+00
+ dcop: end dcop,  cpu clock=  2.19E+00 peak memory=       332 mb  tot_iter=      13
+ output: output.tr0
+ sweep: tran tran1    begin, stop_t=  8.00E-08 #sweeps=  16 cpu clock=  2.19E+00
+ sweep: tran tran1    end,  cpu clock=  9.25E+02 peak memory=       332 mb
+ dcop: begin dcop,  cpu clock=  9.25E+02
+ dcop: end dcop,  cpu clock=  9.26E+02 peak memory=       332 mb  tot_iter=      26
+ output: output.tr0
+ sweep: tran tran2    begin, stop_t=  8.00E-08 #sweeps=  16 cpu clock=  9.26E+02
+ sweep: tran tran2    end,  cpu clock=  2.30E+03 peak memory=       332 mb
+ dcop: begin dcop,  cpu clock=  2.30E+03
+ dcop: end dcop,  cpu clock=  2.30E+03 peak memory=       332 mb  tot_iter=      38
+ output: output.tr0
+ sweep: tran tran3    begin, stop_t=  8.00E-08 #sweeps=  16 cpu clock=  2.30E+03
+ **error** stop simulation by signal SIGINT = 2
+
+ lic: Release hspice token(s)
+p: begin dcop,  cpu clock=  3.76E+03
+ dcop: end dcop,  cpu clock=  3.77E+03 peak memory=       332 mb  tot_iter=     125
+ output: output.tr0
+ sweep: tran tran4    begin, stop_t=  8.00E-08 #sweeps=  16 cpu clock=  3.77E+03
+ **error** stop simulation by signal SIGTERM = 15
+
+ lic: Release hspice token(s)

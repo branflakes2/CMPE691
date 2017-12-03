@@ -3,14 +3,14 @@
  lic:
  lic: FLEXlm: v11.2.1
  lic: USER:   brianw5              HOSTNAME: cadence2.cs.umbc.edu
- lic: HOSTID: 005056950d98         PID:      23420
+ lic: HOSTID: 005056950d98         PID:      20891
  lic: Using FLEXlm license file:
  lic: 27020@license5.umbc.edu
  lic: Checkout 1 hspice
  lic: License/Maintenance for hspice will expire on 25-mar-2018/2016.06
- lic: 3(in_use)/50(total) FLOATING license(s) on SERVER 27020@license5.umbc.edu
+ lic: 9(in_use)/50(total) FLOATING license(s) on SERVER 27020@license5.umbc.edu
  lic:
- init: begin read circuit files,  cpu clock=  3.40E-01
+ init: begin read circuit files,  cpu clock=  4.00E-01
        option search = /afs/umbc.edu/software/synopsys/software/hspice/
                          hspice/parts/ad
        option runlvl
@@ -20,53 +20,137 @@
        option accurate
        option ingold =     2.00
        option measdgt =     8.00
- init: end read circuit files,  cpu clock=  3.50E-01 peak memory=       222 mb
- init: begin check errors,  cpu clock=  3.50E-01
+ init: end read circuit files,  cpu clock=  4.10E-01 peak memory=       222 mb
+ init: begin check errors,  cpu clock=  4.10E-01
  init: end check errors,  cpu clock=  8.20E-01 peak memory=       297 mb
  init: begin setup matrix, pivot=     0 cpu clock=  8.20E-01
-       establish matrix -- done,  cpu clock=  8.30E-01 peak memory=       300 mb
-       re-order matrix -- done,  cpu clock=  9.00E-01 peak memory=       310 mb
- init: end setup matrix,  cpu clock=  9.10E-01 peak memory=       318 mb
+       establish matrix -- done,  cpu clock=  8.40E-01 peak memory=       300 mb
+       re-order matrix -- done,  cpu clock=  9.10E-01 peak memory=       310 mb
+ init: end setup matrix,  cpu clock=  9.20E-01 peak memory=       318 mb
  sweep: monte_carlo     monte_carlo1     begin, #sweeps =   8
- dcop: begin dcop,  cpu clock=  1.14E+00
- dcop: end dcop,  cpu clock=  1.46E+00 peak memory=       318 mb  tot_iter=      13
+ dcop: begin dcop,  cpu clock=  1.18E+00
+ dcop: end dcop,  cpu clock=  1.49E+00 peak memory=       318 mb  tot_iter=      13
  output: PUF.tr0
- sweep: tran tran1    begin, stop_t=  8.00E-08 #sweeps=  16 cpu clock=  1.46E+00
- sweep: tran tran1    end,  cpu clock=  3.62E+02 peak memory=       318 mb
- dcop: begin dcop,  cpu clock=  3.62E+02
- dcop: end dcop,  cpu clock=  3.63E+02 peak memory=       318 mb  tot_iter=      26
+ sweep: tran tran1    begin, stop_t=  8.00E-08 #sweeps=  16 cpu clock=  1.50E+00
+ sweep: tran tran1    end,  cpu clock=  3.50E+02 peak memory=       318 mb
+ dcop: begin dcop,  cpu clock=  3.50E+02
+ dcop: begin pseudo transient
+ dcop: end pseudo transient
+ dcop: begin gshunt ramping
+ dcop: gshunt =      0.1000000E-03, gmin =      0.1000000E-11, iter =      200
+ dcop: gshunt =      0.1000000E-03, gmin =      0.9500000E-11, iter =      200
+ dcop: gshunt =      0.5050000E-03, gmin =      0.9500000E-11, iter =      200
+ dcop: gshunt =      0.5050000E-03, gmin =      0.9025000E-10, iter =      200
+ dcop: gshunt =      0.7277500E-03, gmin =      0.9025000E-10, iter =      200
+ dcop: gshunt =      0.7277500E-03, gmin =      0.8573750E-09, iter =      200
+ dcop: gshunt =      0.8502625E-03, gmin =      0.8573750E-09, iter =      200
+ dcop: gshunt =      0.8502625E-03, gmin =      0.8145062E-08, iter =      200
+ dcop: gshunt =      0.9176444E-03, gmin =      0.8145062E-08, iter =      200
+ dcop: gshunt =      0.9176444E-03, gmin =      0.7737809E-07, iter =      200
+ dcop: gshunt =      0.9547044E-03, gmin =      0.7737809E-07, iter =      200
+ dcop: gshunt =      0.9547044E-03, gmin =      0.7350919E-06, iter =      200
+ dcop: gshunt =      0.9750874E-03, gmin =      0.7350919E-06, iter =      200
+ dcop: gshunt =      0.9750874E-03, gmin =      0.1000000E-05, iter =      200
+ dcop: gshunt =      0.9862981E-03, gmin =      0.1000000E-05, iter =      200
+ dcop: gshunt =      0.9924639E-03, gmin =      0.1000000E-05, iter =      200
+ dcop: gshunt =      0.9958552E-03, gmin =      0.1000000E-05, iter =      200
+ dcop: gshunt =      0.9977203E-03, gmin =      0.1000000E-05, iter =      200
+ dcop: gshunt =      0.9987462E-03, gmin =      0.1000000E-05, iter =      200
+ dcop: gshunt =      0.9993104E-03, gmin =      0.1000000E-05, iter =      200
+ dcop: gshunt =      0.9996207E-03, gmin =      0.1000000E-05, iter =      200
+ dcop: gshunt =      0.9997914E-03, gmin =      0.1000000E-05, iter =      200
+ dcop: gshunt =      0.9998853E-03, gmin =      0.1000000E-05, iter =      200
+ dcop: gshunt =      0.9999369E-03, gmin =      0.1000000E-05, iter =      200
+ dcop: gshunt =      0.1000000E-03
+ dcop: gshunt ramping failed
+ dcop: end dcop,  cpu clock=  5.81E+02 peak memory=       319 mb  tot_iter=    9730
  output: PUF.tr0
- sweep: tran tran2    begin, stop_t=  8.00E-08 #sweeps=  16 cpu clock=  3.63E+02
- sweep: tran tran2    end,  cpu clock=  8.63E+02 peak memory=       318 mb
- dcop: begin dcop,  cpu clock=  8.63E+02
- dcop: end dcop,  cpu clock=  8.63E+02 peak memory=       318 mb  tot_iter=      38
+ sweep: tran tran3    begin, stop_t=  8.00E-08 #sweeps=  16 cpu clock=  5.81E+02
+ sweep: tran tran3    end,  cpu clock=  1.14E+03 peak memory=       319 mb
+ dcop: begin dcop,  cpu clock=  1.14E+03
+ dcop: end dcop,  cpu clock=  1.15E+03 peak memory=       319 mb  tot_iter=    9887
  output: PUF.tr0
- sweep: tran tran3    begin, stop_t=  8.00E-08 #sweeps=  16 cpu clock=  8.63E+02
- sweep: tran tran3    end,  cpu clock=  1.35E+03 peak memory=       318 mb
- dcop: begin dcop,  cpu clock=  1.35E+03
- dcop: end dcop,  cpu clock=  1.36E+03 peak memory=       318 mb  tot_iter=     125
+ sweep: tran tran4    begin, stop_t=  8.00E-08 #sweeps=  16 cpu clock=  1.15E+03
+ sweep: tran tran4    end,  cpu clock=  1.65E+03 peak memory=       319 mb
+ dcop: begin dcop,  cpu clock=  1.65E+03
+ dcop: begin pseudo transient
+ dcop: end pseudo transient
+ dcop: begin gshunt ramping
+ dcop: gshunt =      0.1000000E-03, gmin =      0.1000000E-11, iter =      136
+ dcop: gshunt =      0.1000000E-03, gmin =      0.9500000E-11, iter =      108
+ dcop: gshunt =      0.5050000E-03, gmin =      0.9500000E-11, iter =      200
+ dcop: gshunt =      0.5050000E-03, gmin =      0.9025000E-10, iter =      200
+ dcop: gshunt =      0.7277500E-03, gmin =      0.9025000E-10, iter =      200
+ dcop: gshunt =      0.7277500E-03, gmin =      0.8573750E-09, iter =      200
+ dcop: gshunt =      0.8502625E-03, gmin =      0.8573750E-09, iter =      200
+ dcop: gshunt =      0.8502625E-03, gmin =      0.8145062E-08, iter =      200
+ dcop: gshunt =      0.9176444E-03, gmin =      0.8145062E-08, iter =      200
+ dcop: gshunt =      0.9176444E-03, gmin =      0.7737809E-07, iter =      200
+ dcop: gshunt =      0.9547044E-03, gmin =      0.7737809E-07, iter =      200
+ dcop: gshunt =      0.9547044E-03, gmin =      0.7350919E-06, iter =      200
+ dcop: gshunt =      0.9750874E-03, gmin =      0.7350919E-06, iter =      200
+ dcop: gshunt =      0.9750874E-03, gmin =      0.1000000E-05, iter =      200
+ dcop: gshunt =      0.9862981E-03, gmin =      0.1000000E-05, iter =      200
+ dcop: gshunt =      0.9924639E-03, gmin =      0.1000000E-05, iter =      200
+ dcop: gshunt =      0.9958552E-03, gmin =      0.1000000E-05, iter =      200
+ dcop: gshunt =      0.9977203E-03, gmin =      0.1000000E-05, iter =      200
+ dcop: gshunt =      0.9987462E-03, gmin =      0.1000000E-05, iter =      200
+ dcop: gshunt =      0.9993104E-03, gmin =      0.1000000E-05, iter =      200
+ dcop: gshunt =      0.9996207E-03, gmin =      0.1000000E-05, iter =      200
+ dcop: gshunt =      0.9997914E-03, gmin =      0.1000000E-05, iter =      200
+ dcop: gshunt =      0.9998853E-03, gmin =      0.1000000E-05, iter =      200
+ dcop: gshunt =      0.9999369E-03, gmin =      0.1000000E-05, iter =      200
+ dcop: gshunt =      0.1000000E-03
+ dcop: gshunt ramping failed
+ dcop: end dcop,  cpu clock=  1.86E+03 peak memory=       319 mb  tot_iter=   18843
  output: PUF.tr0
- sweep: tran tran4    begin, stop_t=  8.00E-08 #sweeps=  16 cpu clock=  1.36E+03
- sweep: tran tran4    end,  cpu clock=  1.90E+03 peak memory=       318 mb
- dcop: begin dcop,  cpu clock=  1.90E+03
- dcop: end dcop,  cpu clock=  1.90E+03 peak memory=       318 mb  tot_iter=     270
+ sweep: tran tran5    begin, stop_t=  8.00E-08 #sweeps=  16 cpu clock=  1.86E+03
+ sweep: tran tran5    end,  cpu clock=  2.35E+03 peak memory=       319 mb
+ dcop: begin dcop,  cpu clock=  2.35E+03
+ dcop: begin pseudo transient
+ dcop: end pseudo transient
+ dcop: begin gshunt ramping
+ dcop: gshunt =      0.1000000E-03, gmin =      0.1000000E-11, iter =      200
+ dcop: gshunt =      0.1000000E-03, gmin =      0.9500000E-11, iter =      200
+ dcop: gshunt =      0.5050000E-03, gmin =      0.9500000E-11, iter =      200
+ dcop: gshunt =      0.5050000E-03, gmin =      0.9025000E-10, iter =      200
+ dcop: gshunt =      0.7277500E-03, gmin =      0.9025000E-10, iter =      200
+ dcop: gshunt =      0.7277500E-03, gmin =      0.8573750E-09, iter =       30
+ dcop: gshunt =      0.5296201E-03, gmin =      0.8573750E-09, iter =      200
+ dcop: gshunt =      0.5296201E-03, gmin =      0.8145062E-08, iter =      200
+ dcop: gshunt =      0.6187785E-03, gmin =      0.8145062E-08, iter =      200
+ dcop: gshunt =      0.6187785E-03, gmin =      0.7737809E-07, iter =      200
+ dcop: gshunt =      0.6678157E-03, gmin =      0.7737809E-07, iter =      200
+ dcop: gshunt =      0.6678157E-03, gmin =      0.7350919E-06, iter =      200
+ dcop: gshunt =      0.6947861E-03, gmin =      0.7350919E-06, iter =      200
+ dcop: gshunt =      0.6947861E-03, gmin =      0.1000000E-05, iter =      200
+ dcop: gshunt =      0.7096199E-03, gmin =      0.1000000E-05, iter =      200
+ dcop: gshunt =      0.7177784E-03, gmin =      0.1000000E-05, iter =      200
+ dcop: gshunt =      0.7222656E-03, gmin =      0.1000000E-05, iter =        7
+ dcop: gshunt =      0.7168226E-03, gmin =      0.1000000E-05, iter =      200
+ dcop: gshunt =      0.7192720E-03, gmin =      0.1000000E-05, iter =      200
+ dcop: gshunt =      0.7206191E-03, gmin =      0.1000000E-05, iter =      200
+ dcop: gshunt =      0.7213601E-03, gmin =      0.1000000E-05, iter =      200
+ dcop: gshunt =      0.7217676E-03, gmin =      0.1000000E-05, iter =      200
+ dcop: gshunt =      0.7219917E-03, gmin =      0.1000000E-05, iter =        5
+ dcop: gshunt =      0.7217179E-03, gmin =      0.1000000E-05, iter =        5
+ dcop: gshunt =      0.7217179E-03, gmin =      0.5000000E-06, iter =        6
+ dcop: gshunt =      0.7214441E-03, gmin =      0.5000000E-06, iter =      200
+ dcop: gshunt =      0.7214441E-03, gmin =      0.1000000E-05, iter =      200
+ dcop: gshunt =      0.7215673E-03, gmin =      0.1000000E-05, iter =        7
+ dcop: gshunt =      0.7214168E-03, gmin =      0.1000000E-05, iter =      200
+ dcop: gshunt =      0.7214845E-03, gmin =      0.1000000E-05, iter =      200
+ dcop: gshunt =      0.7215218E-03, gmin =      0.1000000E-05, iter =      200
+ dcop: gshunt =      0.1000000E-03
+ dcop: gshunt ramping failed
+ dcop: end dcop,  cpu clock=  2.56E+03 peak memory=       319 mb  tot_iter=   28189
  output: PUF.tr0
- sweep: tran tran5    begin, stop_t=  8.00E-08 #sweeps=  16 cpu clock=  1.90E+03
- sweep: tran tran5    end,  cpu clock=  2.44E+03 peak memory=       318 mb
- dcop: begin dcop,  cpu clock=  2.44E+03
- dcop: end dcop,  cpu clock=  2.44E+03 peak memory=       318 mb  tot_iter=     282
+ sweep: tran tran7    begin, stop_t=  8.00E-08 #sweeps=  16 cpu clock=  2.56E+03
+ sweep: tran tran7    end,  cpu clock=  3.09E+03 peak memory=       319 mb
+ dcop: begin dcop,  cpu clock=  3.09E+03
+ dcop: end dcop,  cpu clock=  3.09E+03 peak memory=       319 mb  tot_iter=   28359
  output: PUF.tr0
- sweep: tran tran6    begin, stop_t=  8.00E-08 #sweeps=  16 cpu clock=  2.44E+03
- sweep: tran tran6    end,  cpu clock=  2.96E+03 peak memory=       318 mb
- dcop: begin dcop,  cpu clock=  2.96E+03
- dcop: end dcop,  cpu clock=  2.96E+03 peak memory=       318 mb  tot_iter=     295
- output: PUF.tr0
- sweep: tran tran7    begin, stop_t=  8.00E-08 #sweeps=  16 cpu clock=  2.96E+03
- sweep: tran tran7    end,  cpu clock=  3.54E+03 peak memory=       318 mb
- dcop: begin dcop,  cpu clock=  3.54E+03
- dcop: end dcop,  cpu clock=  3.54E+03 peak memory=       318 mb  tot_iter=     307
- output: PUF.tr0
- sweep: tran tran8    begin, stop_t=  8.00E-08 #sweeps=  16 cpu clock=  3.54E+03
- sweep: tran tran8    end,  cpu clock=  4.07E+03 peak memory=       318 mb
+ sweep: tran tran8    begin, stop_t=  8.00E-08 #sweeps=  16 cpu clock=  3.09E+03
+ sweep: tran tran8    end,  cpu clock=  3.60E+03 peak memory=       319 mb
 >info:         ***** hspice job concluded
  lic: Release hspice token(s)

@@ -1,7 +1,7 @@
 * "simulator" "HSPICE" 
 * "version" "L-2016.06-SP2-2 linux64"
 * "format" "HSP"
-* "rundate" "13:39:40 11/29/2017 "
+* "rundate" "22:05:51 11/29/2017 "
 * "netlist" "PUF.sp "
 * "runtitle" "**puf spice file**"
 * time =  0.000e+00       

@@ -17,7 +17,7 @@
 .PARAM LMIN=GAUSS(50E-09,0.5,5), vth_pmos=GAUSS(-0.3021,0.1,1), vth_nmos=GAUSS(0.322,0.1,1), toxm_pmos=GAUSS(1.26E-009,0.01,1), toxm_nmos=GAUSS(1.14E-09,0.01,1)
 
 **Transient Analysis**
-.TRAN 5n 80n START=2.5n SWEEP MONTE=8
+.TRAN 5n 80n START=4n SWEEP MONTE=8
 .PRINT TRAN V(in) V(out0) V(out1) V(out2) V(out3) V(out4) V(out5) V(out6) V(out7)
 
 **Sources**
