@@ -1,5 +1,0 @@
-$DATA1 SOURCE='HSPICE' VERSION='L-2016.06-SP2-2 linux64' PARAM_COUNT=1
-$index=1 is a nominal sample in Monte Carlo.
-.TITLE '******** 4-bit adder ***********'
- index            rise_difference  fall_difference  rise_time       
-                  fall_time        temper           alter#          
