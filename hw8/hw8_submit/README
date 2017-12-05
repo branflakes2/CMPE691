@@ -1,0 +1,31 @@
+******************************IMPORTANT****************************************
+For some reason, the 3rd arbiter chain of the third PUF kept giving me values
+around 0.25 volts, regardless of the Gauss parameters. This is in between a 
+one and a zero, so I adjusted a '0' to 0.3 volts in the AtD python script.
+*******************************************************************************
+
+For intra hamming distance, I only compared challenge pairs [0, 1] [2, 3] ...
+[13, 14] because these are the only challenges with 1 bit difference.
+
+To calculate metrics, use the HD.py file:
+python HD.py <PUF1_dig.txt> <PUF2_dig.txt> ... <PUF8_dig.txt>
+
+For inter hamming distance, took the average hamming distance bewteen each
+unique PUF pair for each challenge.
+
+For uniformity, I took the proportion of 1's to 0's for every PUF.
+
+For bit-flip, I took the proportion of 1's to 0's for each bit of every
+challenge between each PUF
+
+The output of the last 2 challenges should be the same, because the chllenges
+are identical.
+
+The metrics I calculated for each PUF are not ideal, with a strong trend toward
+0.
+
+To generate a new spice file with a different challenge, run the command:
+./GenPUFSp.sh <challenge file> <output spice file>
+
+Run the generated spice file normally with:
+hspice <output spice file> -o <output lis file>

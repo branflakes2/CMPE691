@@ -17,8 +17,7 @@ def HD(str1, str2):
 def intraHD(pufMat):
     s = 0
     for i in range(0, len(pufMat) - 1):
-        if i % 2 == 0:
-            s = s + HD(pufMat[i], pufMat[i + 1]) 
+        s = s + HD(pufMat[i], pufMat[i + 1]) 
     return s/(len(pufMat) - 1)    
 
 def interHD(pufMat1, pufMat2):
